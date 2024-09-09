@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Telegram Storage API Example",
+    "description": "",
+    "contact": {
+      "email": ""
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080/uploads"
+    }
+  ],
+  "tags": [],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": ["Uploads"],
+        "summary": "Uploads",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "document": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/{file_id}": {
+      "get": {
+        "tags": ["Uploads"],
+        "summary": "Uploads",
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    }
+  }
+}
